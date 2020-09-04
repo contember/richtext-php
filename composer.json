@@ -1,0 +1,23 @@
+{
+    "name": "contember/richtext",
+    "description": "Renderer of Contember RichText format",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "David Matejka",
+            "email": "matej21@matej21.cz"
+        }
+    ],
+    "require": {
+        "nette/utils": "^3.1"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.42"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contember\\RichText\\": "src/"
+        }
+    }
+}

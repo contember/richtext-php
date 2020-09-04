@@ -1,0 +1,25 @@
+name: QA
+
+on: push
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php-versions: [ '7.1', '7.2', '7.3', '7.4' ]
+    name: PHP ${{ matrix.php-versions }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+
+      - name: Composer Install
+        run: composer install
+
+      - name: PHPStan
+        run: stages/ci/run-phpstan.sh
+
